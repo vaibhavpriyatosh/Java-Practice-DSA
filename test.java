@@ -35,6 +35,35 @@ class test{//134,48
 */
 		//System.out.println(numberOfRounds(startTime,finishTime));
 	}
+
+	public ListNode removeNthFromEnd(ListNode head, int n) {
+    	ListNode temp=head;
+    	ListNode remove=head;
+    	int count=0;
+
+    	while(count<n){
+    		temp=temp.next;
+    		count++;
+    	}
+    	if(temp.next ==null)
+    		return head.next;
+
+    	temp=temp.next;
+    	remove=remove.next;
+    	ListNode counter=head;
+
+    	while(temp.next != null){
+    		temp=temp.next;
+    		remove=remove.next;
+    		counter=counter.next;
+    	}   		
+
+    	counter.next=counter.next.next;
+    	return head;
+
+
+    }
+
 	public int balancedStringSplit(String s) {
     
 		int n=s.length();
