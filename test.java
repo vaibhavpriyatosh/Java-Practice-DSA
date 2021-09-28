@@ -35,6 +35,26 @@ class test{//134,48
 */
 		//System.out.println(numberOfRounds(startTime,finishTime));
 	}
+	public int balancedStringSplit(String s) {
+    
+		int n=s.length();
+
+		int count=-1;
+		int times=0;
+
+
+		for (int i=0;i<n ;i++ ) {
+			if(times==0)
+				count++;
+
+			if(s.charAt(i)=='L')
+				times++;
+			else
+				time--;
+
+		}
+
+    }
 
 	public static String replaceDigits(String s) {
         int l=s.length();
