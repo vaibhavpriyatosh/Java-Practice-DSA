@@ -3,70 +3,120 @@ class test{//134,48
 
 	public static void main(String[] args) {
 
-		
-		System.out.println(replaceDigits("a1c1e1e"));
-
-
-		// String a="hello",b="ll";
-		// int i=2;
-		// System.out.println(compareString(a.substring(i,i+2),b));
-
-		// int nums[]={0,1,1,1,2,2,3,3,4};
-		// nums=rev_one(nums);	
-		// for(int i=0;i<nums.length;i++)
-		// 	System.out.println(nums[i]);
-
-		
-		/*String s1 = "aabcc", s2 = "dbbca", s3 = "aadbbcbcac";
-		System.out.println(isInterleave(s1,s2,s3));
-*/
-		//String a[]={"alice,20,800,mtv","bob,50,1200,mtv"};
-		//System.out.println(invalidTransactions(a));
-
-		//System.out.println(angleClock(3,15));
-
-		//frequencySort("aabAAddd");
-
-		/*int a[]={1,2,1,1};
-		System.out.println(rob(a));
-*/
-		/*String startTime = "12:00", finishTime = "12:45";
-		System.out.println(clockmov(startTime,finishTime));
-*/
-		//System.out.println(numberOfRounds(startTime,finishTime));
 	}
 
-	public ListNode removeNthFromEnd(ListNode head, int n) {
-    	ListNode temp=head;
-    	ListNode remove=head;
-    	int count=0;
+	// public int numIdenticalPairs(int[] nums) { //1512
+     
 
-    	while(count<n){
-    		temp=temp.next;
-    		count++;
-    	}
-    	if(temp.next ==null)
-    		return head.next;
 
-    	temp=temp.next;
-    	remove=remove.next;
-    	ListNode counter=head;
+ //    }
 
-    	while(temp.next != null){
-    		temp=temp.next;
-    		remove=remove.next;
-    		counter=counter.next;
-    	}   		
+	public boolean checkIfExist(int[] arr) {//1346
+        int n=arr.length;
 
-    	counter.next=counter.next.next;
-    	return head;
+		for (int i=0;i<n ;i++ ) {
+			int k=arr[i]*2;
+			int j=0;
+
+			if(k==0)
+				j=i+1;
+
+			for (int j=0;j<n ;j++ ) {
+				
+				if(k==arr[j])
+					return true;
+			}
+
+		}
+
+        return false;
+    }
+
+    public static int countMatches(List<List<String>> items, String ruleKey, String ruleValue) {//1773
+    
+		int n=items.size();
+		int place=0;
+		int count=0;
+
+		if(ruleKey.equals("type"))
+			place=0;
+		else if(ruleKey.equals("color"))
+			place=1;
+		else
+			place=2;
+
+		for (int i=0;i<n ;i++ ) {
+			if((items.get(i).get(place)).equals(ruleValue))
+				count++;
+		}
+
+		return count;
 
 
     }
 
+
+    public int lengthOfLastWord(String s) {///58
+    
+		int n=s.length();
+		int count=0;
+
+		for (int i=n-1;i>=0 ;i-- ) {
+			while(i>=0 && s.charAt(i)==' ')
+				i--;
+
+			if(i<0)
+				return 0;
+
+			while(i>=0 && s.charAt(i)!=' ')
+				count++;
+			
+		}
+
+		return count;
+
+    }
+
+	public int searchInsert(int[] nums, int target) {
+    
+		int len=nums.length;
+		int start=0,end=len-1;
+
+		int mid=(start+end)/2;
+		int prev=mid;
+
+		while(start<=end){
+			mid=(start+end)/2;
+			if(nums[mid]==target)
+				return mid;
+			else if(mid==len-1)
+				return len;
+			else if(nums[mid]<target && nums[mid+1]>target)
+				return mid+1;
+
+			if(nums[mid]>target){
+				start=mid;
+				continue;
+			}
+			else
+				end=mid;
+
+
+		}
+		return mid;
+
+
+    }
+
+
+
+   
+
 	public int balancedStringSplit(String s) {
     
 		int n=s.length();
+		int time=0;
+
 
 		int count=-1;
 		int times=0;
@@ -82,6 +132,7 @@ class test{//134,48
 				time--;
 
 		}
+		return time;
 
     }
 
