@@ -57,7 +57,7 @@ class min_AtoB{
         int ans = (N-LISLength(res)) + (M-LISLength(res));
 
         return ans;
-    }
+    }  
 	public static void main(String[] args) {
 		int a[]={1, 4};
 		int b[]={1, 4};
